@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UntitledGames - AuroraEngine</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script>
+
+    function fadeOut(n) {
+        $(n).hide();
+        $(n).fadeIn("slow");
+    }
+
+    $(document).ready(function() {
+        fadeOut("h1,h2,h3")
+        fadeOut("img")
+
+        $(".video").each(function(i, obj) {
+            console.log("Processing video "+i)
+            obj.addEventListener("mouseenter",function() {
+                obj.play();
+            })
+            obj.addEventListener("mouseleave",function() {
+                obj.pause();
+            })
+        });
+    });
+</script>
+
+</head>
+<body topmargin="0" leftmargin="0" rightmargin="0">
+
+<div class="topnav" id="topnav">
+        <a href="index.html">Home</a>
+        <a href="aurora.html" class="active">AuroraEngine</a>
+
+</div>
+
+<div class="blankspace" style="height: 150px;"></div>
+
+<div class="blankspace" style="height: 150px;"></div>
+
+<div class="construction-tape" style="height: 150px;">
+    <h2 class="drop-shadow" style="color: white;">This page is under construction! Come back later.</h2>
+</div>
+
+</body>
+</html>
