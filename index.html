@@ -8,15 +8,17 @@
 
 <script>
 
-    function fadeOut(n) {
+    function fadeIn(n) {
         $(n).hide();
-        $(n).fadeIn("slow");
+        $(n).fadeIn(1000);
     }
 
 
     $(document).ready(function() {
-        fadeOut("h1,h2,h3")
-        fadeOut("img")
+        fadeIn("h1,h2,h3")
+        fadeIn("img")
+
+        $("#15vid").prop("muted", true)
 
         $(".video").each(function(i, obj) {
             console.log("Processing video "+i)
@@ -27,6 +29,17 @@
                 obj.pause();
             })
         });
+
+        $("#toggle-sound").click(function() {
+
+            if ($("#15vid").prop('muted')) {
+                $("#toggle-sound").text("􀊥")
+            } else {
+                $("#toggle-sound").text("􀊢")
+            }
+
+            $("#15vid").prop('muted', !$("#15vid").prop('muted'));
+        })
     });
 </script>
 
@@ -35,11 +48,44 @@
 
 <div class="topnav" id="topnav">
         <a href="index.html" class="active">Home</a>
-        <a href="aurora.html">AuroraEngine</a>
 
 </div>
 
+<div class="blankspace" style="height: 100px;"></div>
+
+<!--
+<div class="logocontainer">
+    <div class="logopiece" style="width: 250px; height: 250px;">
+        <div class="logopiece" style="width: 75%; height: 75%;">
+            <div class="logopiece" style="width: 75%; height: 75%;">
+
+            </div>
+        </div>
+    </div>
+</div> 
+
+<br><br>
+
+<h1>UntitledGames</h1>
+
 <div class="blankspace" style="height: 150px;"></div>
+
+-->
+
+<div class="video-container rounded" style="width: 75%; height: 500px;">
+    <video class="video" id="15vid" playsinline autoplay loop>
+        <source src="res/videos/wow.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+        <div class="blankspace" style="height: 10%;"></div>
+        <h2 style="color: rgb(255, 255, 255); text-align: center; font-size: 64px;">iPhone 15</h2>
+        <h3 style="color: white; font-size: 32px;"><a href="https://www.apple.com/iphone-15/" style="color: white;font-family: sfpro-display-lighter;">New Camera. New Design.</a></h3>
+        <div class="blankspace" style="height: 50%;"></div>
+        <div class="center" style="justify-content: right; align-items: right;">
+            <button class="button" id="toggle-sound" style="align-self:right; border-radius: 20%; margin-right: 2.5%; font-family: sfpro-display-thin;">􀊢</button>
+        </div> 
+    </div>
+</div>
 
 <div class="blankspace" style="height: 150px;"></div>
 
